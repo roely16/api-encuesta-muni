@@ -1,8 +1,8 @@
 <?php 
 
-    $servername = "192.168.190.232";
+    $servername = "localhost";
     $username = "root";
-    $password = "area51";
+    $password = "";
     $dbname = "encuesta-muni";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
