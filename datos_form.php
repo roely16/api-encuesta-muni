@@ -31,9 +31,28 @@
 
     }
 
+    $sql = "SELECT * FROM extremo";
+
+    $result = $conn->query($sql);
+
+    $extremos = [];
+
+    while ($row = $result->fetch_assoc()) {
+        
+        $row["uno"] = null;
+        $row["dos"] = null;
+        $row["tres"] = null;
+        $row["cuatro"] = null;
+        $row["cinco"] = null;
+
+        $extremos [] = $row;
+
+    }
+
     $data = [
         "codigos" => $codigos,
-        "preguntas" => $preguntas
+        "preguntas" => $preguntas,
+        "extremos" => $extremos
     ];
 
     echo json_encode($data);

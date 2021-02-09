@@ -19,6 +19,29 @@
 
         $pregunta = $result->fetch_assoc();
 
+        // Si es de tipo Rango
+        if ($data->tabla == 'rango') {
+            
+            $sql =  "   SELECT *
+                        FROM detalle_rango t1
+                        INNER JOIN extremo t2
+                        ON t1.id_extremo = t2.id
+                        WHERE id_rango = $data->id";
+
+            $result = $conn->query($sql);
+
+            $extremos = [];
+
+            while ($row = $result->fetch_assoc()) {
+                
+                $extremos [] = $row;
+
+            }
+
+            $pregunta["extremos"] = $extremos;
+            
+        }
+
         echo json_encode($pregunta);
 
     }
